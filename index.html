@@ -1,5 +1,7 @@
 <html>
+<head>
 <title>Survey Form</title>
+</head>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap');
 body{
@@ -8,9 +10,15 @@ body{
   text-align: center;
   margin: 0;
 }
+h1{
+  margin-bottom: 0;
+}
+h1 + p{
+  margin-top: 0;
+}
 form{
   background-color:#b2bec3;
-  margin:0 auto;
+  margin:20px auto;
   max-width:450px;
   border-radius:5px;
   box-shadow:2px 5px 10px rgba(0,0,0,0.4);
@@ -21,10 +29,34 @@ form{
   text-align:left;
 }
 .form-control label{
-
+display: block;
+margin-bottom:5px;
 }
-.form-control input{
-
+.form-control input,
+.form-control select,
+.form-control textarea{
+ display:block;
+ width:100%;
+ padding:8px;
+ border-radius:4px;
+ border: 1px solid #718093;
+ font-size:16px;
+ font-family: inherit;
+}
+.form-control input[type="radio"],
+.form-control input[type="checkbox"]{
+  display: inline-block;
+  width: auto;
+}
+button{
+  background-color: #dcdde1;
+  display:block;
+  padding: 10px;
+  width:100%;
+  border-radius: 4px;
+  border: 1px solid #718093;
+  font-family: inherit;
+  font-size: 16px;
 }
 </style>
 <body>
@@ -32,19 +64,62 @@ form{
 <p id="description">Thank You for taking time to help us improve the platform</p>
 <form id="survey-form">
   <div class="form-control">
-    <label for="name" id="label-name">Name</label>
-    <input type="text" id="name" placeholder="Enter your name">
+    <label for="name" id="name-label">Name</label>
+    <input type="text" id="name" placeholder="Enter your name" required>
   </div>
   <div class="form-control">
-    <label for="email" id="label-email">Email</label>
-    <input type="email" id="email" placeholder="Enter your email">
+    <label for="email" id="email-label">Email</label>
+    <input type="email" id="email" placeholder="Enter your email"required>
   </div>
   <div class="form-control">
-    <label for="age" id="label-age">Age</label>
-    <input type="number" id="age" placeholder="Enter your age">
+    <label for="number" id="number-label">Age(optional)</label>
+    <input type="number" id="number" placeholder="Enter your age" min="18" max="100">
   </div>
-  
-  </form>
-<input type="text" name="" value="">
+  <div class="form-control">
+    <label for="role" >Which option best describes your current role?</label>
+<select name="role" id="dropdown">
+<option value="Student">Student</option>
+<option value="Full-time Job">Full-time Job</option>
+<option value="Part-time Job">Part-time Job</option>
+<option value="prefer not to say">prefer not to say</option>
+<option value="Other">Other</option>
+</select>
+  </div>
+  <div class="form-control">
+    <label>Would you recommend freeCodeCamp to a friend?</label>
+      <label for="recommend-1"><input type="radio" name="recommend" value="Definitely" id="recommend-1">Definitely</label>
+      <label for="recommend-2"><input type="radio" name="recommend" value="May be" id="recommend-2">May be</label>
+      <label for="recommend-3"><input type="radio" name="recommend" value="Not Sure" id="recommend-3">Not Sure</label>
+  </div>
+</div>
+<div class="form-control">
+  <label for="favorite" >What is your favorite feature of freeCodeCamp?</label>
+<select name="favorite" id="favorite">
+<option value="Challenges">Challenges</option>
+<option value="Projects">Projects</option>
+<option value="Community">Community</option>
+<option value="Open Source">Open Source</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="form-control">
+  <label>What would you like to see improved? (Check all that apply)</label>
+    <label for="improved- 1"><input type="checkbox" name="improved" value="Front-end Projects" id="improved- 1">Front-end Projects</label>
+    <label for="improved- 2"><input type="checkbox" name="improved" value="Back-end Projects" id="improved- 2">Back-end Projects</label>
+    <label for="improved- 3"><input type="checkbox" name="improved" value="Data Visualization" id="improved- 3">Data Visualization</label>
+    <label for="improved- 4"><input type="checkbox" name="improved" value="Challenges" id="improved- 4">Challenges</label>
+    <label for="improved- 5"><input type="checkbox" name="improved" value="Open Source Community" id="improved- 5">Open Source Community</label>
+    <label for="improved- 6"><input type="checkbox" name="improved" value="Gitter help rooms" id="improved- 6">Gitter help rooms</label>
+    <label for="improved- 7"><input type="checkbox" name="improved" value="Wiki" id="improved- 7">Wiki</label>
+    <label for="improved- 8"><input type="checkbox" name="improved" value="Additional Courses" id="improved- 8">Additional Courses</label>
+    <label for="improved- 9"><input type="checkbox" name="improved" value="Forum" id="improved- 9">Forum</label>
+</div>
+<div class="form-control">
+  <label for="suggestions" id="">Any comments or suggestions?</label>
+  <textarea  name="suggestions" id="suggestions" placeholder="Enter any comments or suggestions here...">
+  </textarea>
+</div>
+  <button type="submit" id="submit" value="Submit">Submit</button>
+</form>
 </body>
 </html>
